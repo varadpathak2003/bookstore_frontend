@@ -1,0 +1,52 @@
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
