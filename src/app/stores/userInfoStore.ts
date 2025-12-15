@@ -18,6 +18,7 @@ const initialState:UserInfoState={
 }
 
 export const UserInfoStore=signalStore(
+    { providedIn: 'root' },
     withState(initialState),
     withMethods((store)=>({
         setUser(user:User){

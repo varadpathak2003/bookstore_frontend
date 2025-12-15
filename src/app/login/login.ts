@@ -33,7 +33,7 @@ export class Login {
         error: (error) => {
           console.error('Error:', error);
           alert("Incorrect email or password");
-        }
+        } 
       });
   }
 }
