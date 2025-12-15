@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { UserInfoStore } from '../stores/userInfoStore';
 
 @Component({
   selector: 'login',
@@ -16,10 +17,17 @@ export class Login {
   constructor(private http:HttpClient){}
 
   onSubmit() {
-    this.http.post("http://localhost:3000/user/login",this.user)
+    this.http.post<any>("http://localhost:3000/user/login",this.user)
       .subscribe({
         next:(response)=>{
-          console.log("User Login Successful");
+          const token=response.token;
+          const user:{userID:string,email:string,name:string}=response.user;
+
+          const store=inject(UserInfoStore);
+          store.setToken(token);
+          store.setUser(user);
+          store.setIsLoggedIn(true);
+          
           alert("Login Successful");
         },
         error: (error) => {
@@ -27,6 +35,5 @@ export class Login {
           alert("Incorrect email or password");
         }
       });
-    console.log(this.user.email);
   }
 }
