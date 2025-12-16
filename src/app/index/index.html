@@ -15,9 +15,9 @@
 
     <div class="book-grid">
         @for (book of books(); track book.BookID) {
-        <div class="book-card" (click)="viewBookDetails(book.BookID)">
+        <div class="book-card">
 
-            <img src="https://via.placeholder.com/300x180" class="book-image" alt="Book cover" />
+            <img src="https://via.placeholder.com/300x420" class="book-image" alt="Book cover" />
 
             <div class="book-body">
                 <h3>{{ book.Title }}</h3>
@@ -25,7 +25,7 @@
             </div>
 
             <div class="book-footer">
-                <button class="view-btn">View Details</button>
+                <button class="view-btn" (click)="viewBookDetails(book.BookID)">View Details</button>
             </div>
 
         </div>

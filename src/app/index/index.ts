@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { BookStore } from '../stores/bookStore';
 import { UserInfoStore } from '../stores/userInfoStore';
 
@@ -18,7 +18,7 @@ export class Index {
   books = this.bookStore.books;
   isLoggedIn=this.userInfoStore.isLoggedIn;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private router:Router) { }
 
   ngOnInit() {
     this.httpClient.get<any[]>("http://localhost:3000/books")
@@ -36,8 +36,13 @@ export class Index {
         }
       })
   }
-  viewBookDetails(id:number){
-    
 
+  viewBookDetails(id:number){
+    console.log("View Book Details");
+    if(!this.isLoggedIn()){
+      this.router.navigate(["user/login"]);
+      return;
+    }
+    this.router.navigate(["/book",id]);
   }
 }

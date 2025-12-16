@@ -3,10 +3,10 @@ import { patchState, signalStore, withMethods, withState } from "@ngrx/signals"
 type Book={
     BookID:number,
     Title:string,
-    author:string,
+    Author:string,
     Price:number,
-    description:string,
-    quantity:number
+    Description:string,
+    Quantity:number
 }
 type BookState={
     books:Book[]|null,
