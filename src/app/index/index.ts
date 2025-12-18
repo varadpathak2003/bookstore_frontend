@@ -40,9 +40,9 @@ export class Index {
   viewBookDetails(id:number){
     console.log("View Book Details");
     if(!this.isLoggedIn()){
-      this.router.navigate(["user/login"]);
+      this.router.navigate(["api/login"]);
       return;
     }
-    this.router.navigate(["/book",id]);
+    this.router.navigate(["api/book",id]);
   }
 }

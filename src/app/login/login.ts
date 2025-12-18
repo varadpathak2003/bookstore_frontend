@@ -23,8 +23,9 @@ export class Login {
         next:(response)=>{
           const token=response.token;
           const user:{userID:string,email:string,name:string}=response.user;
-      
+          
           this.store.setToken(token);
+          console.log("TOKEN",this.store.jwtToken());
           this.store.setUser(user);
           this.store.setIsLoggedIn(true);
           
